@@ -1,4 +1,4 @@
-appid = dab32f93bf2da6f398c9a2dbfad688a5
+appid = appid
 import requests
 
 def get_wind_direction(deg):
@@ -33,7 +33,7 @@ def get_city_id(s_city_name):
 def request_current_weather(city_id):
     try:
         res = requests.get("http://api.openweathermap.org/data/2.5/weather",
-                     params={'id': 3169070, 'units': 'metric', 'lang': 'it', 'APPID': dab32f93bf2da6f398c9a2dbfad688a5})
+                     params={'id': 3169070, 'units': 'metric', 'lang': 'it', 'APPID': appid})
         data = res.json()
         print("conditions:", data['weather'][0]['description'])
         print("temp:", data['main']['temp'])
@@ -47,7 +47,7 @@ def request_current_weather(city_id):
 def request_forecast(city_id):
     try:
         res = requests.get("http://api.openweathermap.org/data/2.5/forecast",
-                           params={'id': 3169070, 'units': 'metric', 'lang': 'it', 'APPID': dab32f93bf2da6f398c9a2dbfad688a5})
+                           params={'id': 3169070, 'units': 'metric', 'lang': 'it', 'APPID':appid})
         data = res.json()
         print('city:', data['city']['name'], data['city']['country'])
         for i in data['list']:
